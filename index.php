@@ -1,6 +1,12 @@
 <?php
 header('Content-Type: text/plain');
-$con = pg_connect("dbname=".getenv("POSTGRESQL_DATABASE")." "."user=".getenv("POSTGRESQL_USER")." "."password=".getenv("POSTGRESQL_PASSWORD")." "."host=".getenv("DATABASE_SERVICE_HOST")." "."port=".getenv("DATABASE_SERVICE_PORT")) or die('Could not connect to the database: ' + pg_last_error());
+$host = getenv("DATABASE_SERVICE_HOST") || "localhost" ;
+$database = getenv("POSTGRESQL_DATABASE") || "root";
+$username = getenv("POSTGRESQL_USER") || "user";
+$password = getenv("POSTGRESQL_PASSWORD") || pass;
+$port = getenv("DATABASE_SERVICE_PORT") || 5432;
+
+$con = pg_connect("dbname=$database user=$username password=$password host=$host port=$port" or die('Could not connect to the database: ' + pg_last_error());
 $result = pg_query($con, "CREATE TABLE factory(id INTEGER NOT NULL, data TEXT, PRIMARY KEY(id));");
 if($result === false) {
 }
