@@ -3,10 +3,10 @@ header('Content-Type: text/plain');
 $host = getenv("DATABASE_SERVICE_HOST") || "localhost" ;
 $database = getenv("POSTGRESQL_DATABASE") || "root";
 $username = getenv("POSTGRESQL_USER") || "user";
-$password = getenv("POSTGRESQL_PASSWORD") || pass;
+$password = getenv("POSTGRESQL_PASSWORD") || "pass";
 $port = getenv("DATABASE_SERVICE_PORT") || 5432;
 
-$con = pg_connect("dbname=$database user=$username password=$password host=$host port=$port") or die('Could not connect to the database: ' + pg_last_error());
+$con = pg_connect("dbname=root user=userYVD password=JcS42gbL host=172.17.0.35 port=5432") or die('Could not connect to the database: ');
 $result = pg_query($con, "CREATE TABLE factory(id INTEGER NOT NULL, data TEXT, PRIMARY KEY(id));");
 if($result === false) {
 }
