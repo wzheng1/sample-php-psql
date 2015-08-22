@@ -6,7 +6,7 @@ $username = getenv("POSTGRESQL_USER") || "user";
 $password = getenv("POSTGRESQL_PASSWORD") || "pass";
 $port = getenv("DATABASE_SERVICE_PORT") || 5432;
 
-$con = pg_connect("dbname=root user=user password=password host=172.17.0.35 port=5432") or die('Could not connect to the database: ');
+$con = pg_connect("dbname=root user=user password=password host=172.17.0.67 port=5432") or die('Could not connect to the database: ');
 $result = pg_query($con, "CREATE TABLE factory(id INTEGER NOT NULL, data TEXT, PRIMARY KEY(id));");
 if($result === false) {
 }
